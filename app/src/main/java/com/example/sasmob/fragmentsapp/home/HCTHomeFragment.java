@@ -39,7 +39,7 @@ public class HCTHomeFragment extends Fragment implements HctHomeAdapter.OnAdapte
     TypedArray home_items_images;
     ArrayList<HomeItems> homeItems;
     RecyclerView homeRecycler;
-    private static final int NUMBER_CULOMNS=2;
+    private static final int NUMBER_CULOMNS=3;
 
     private OnFragmentInteractionListener mListener;
 
