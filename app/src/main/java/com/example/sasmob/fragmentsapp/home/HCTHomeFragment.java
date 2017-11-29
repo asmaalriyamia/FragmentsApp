@@ -1,15 +1,18 @@
 package com.example.sasmob.fragmentsapp.home;
 
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.sasmob.fragmentsapp.R;
 
@@ -23,7 +26,7 @@ import java.util.ArrayList;
  * Use the {@link HCTHomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HCTHomeFragment extends Fragment {
+public class HCTHomeFragment extends Fragment implements HctHomeAdapter.OnAdapterItemClick {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,7 +39,7 @@ public class HCTHomeFragment extends Fragment {
     TypedArray home_items_images;
     ArrayList<HomeItems> homeItems;
     RecyclerView homeRecycler;
-    private static final int NUMBER_CULOMNS=3;
+    private static final int NUMBER_CULOMNS=2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -85,6 +88,7 @@ public class HCTHomeFragment extends Fragment {
         homeRecycler.setLayoutManager(manager);
         createHomeItem();
         HctHomeAdapter adapter=new HctHomeAdapter(getActivity(),homeItems);
+        adapter.setOnItemClick(this);
         homeRecycler.setAdapter(adapter);
         return view;
     }
@@ -120,6 +124,25 @@ public class HCTHomeFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+        Toast.makeText(getActivity(),"this is the position"+position,Toast.LENGTH_SHORT).show();
+            Fragment fragment=null;
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        switch (position){
+            case 0:
+                fragment=new HCTHomeFragment();
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
+        transaction.replace(R.id.main_container,fragment);
+        transaction.addToBackStack(fragment.getClass().getSimpleName());
+        transaction.commit();
     }
 
     /**

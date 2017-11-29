@@ -19,6 +19,11 @@ import java.util.ArrayList;
 public class HctHomeAdapter extends RecyclerView.Adapter<HctHomeAdapter.ViewHolder> {
     Context mContext;
     ArrayList<HomeItems>homeItems;
+    public OnAdapterItemClick OnItemClick;
+
+    public interface OnAdapterItemClick{
+        public void OnItemClick(int position);
+    }
 
     public HctHomeAdapter(Context mContext, ArrayList<HomeItems> homeItems) {
         this.mContext = mContext;
@@ -33,10 +38,16 @@ public class HctHomeAdapter extends RecyclerView.Adapter<HctHomeAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         HomeItems items= homeItems.get(position);
         holder.home_item.setText(items.getHomeItems());
         holder.home_image.setImageResource(items.getHomeImages());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OnItemClick.OnItemClick(position);
+            }
+        });
 
     }
 
@@ -53,5 +64,8 @@ public class HctHomeAdapter extends RecyclerView.Adapter<HctHomeAdapter.ViewHold
           home_item=(TextView)  itemView.findViewById(R.id.home_element_name);
           home_image=(ImageView) itemView.findViewById(R.id.home_image);
         }
+    }
+    public void setOnItemClick(OnAdapterItemClick onItemClick){
+        this.OnItemClick=onItemClick;
     }
 }
