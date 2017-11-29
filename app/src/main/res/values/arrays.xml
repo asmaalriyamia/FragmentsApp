@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="home_items">
+        <item>About</item>
+        <item>Center</item>
+        <item>Academic</item>
+        <item>Student Portal</item>
+        <item>Stuff Portal</item>
+        <item>QUI</item>
+        <item>Alumni</item>
+        <item>Maps</item>
+    </string-array>
+    <integer-array name="home_items_images">
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+        <item>@drawable/academic</item>
+    </integer-array>
+</resources>
