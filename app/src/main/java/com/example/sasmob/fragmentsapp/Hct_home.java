@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.sasmob.fragmentsapp.hct_studentmodule.HctStudents;
 import com.example.sasmob.fragmentsapp.home.HCTHomeFragment;
@@ -31,5 +33,15 @@ public class Hct_home extends AppCompatActivity implements
 
     public void onFragmentInteraction(Uri uri) {
 
+    }
+    public void onFragmentBackPressed(View view){
+        Toast.makeText(this,"back", Toast.LENGTH_LONG).show();
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        getSupportActionBar().show();
+        super.onBackPressed();
     }
 }
