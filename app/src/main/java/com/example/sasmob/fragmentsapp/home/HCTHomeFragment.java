@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.sasmob.fragmentsapp.R;
+import com.example.sasmob.fragmentsapp.hct_studentmodule.HctStudents;
 
 import java.util.ArrayList;
 
@@ -133,16 +134,17 @@ public class HCTHomeFragment extends Fragment implements HctHomeAdapter.OnAdapte
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         switch (position){
             case 0:
-                fragment=new HCTHomeFragment();
+                fragment=new HctStudents();
                 break;
-            case 1:
+            case 1: fragment= new HctStudents();
                 break;
-            case 2:
+            case 2:  Toast.makeText(getActivity(),"this is the position"+position,Toast.LENGTH_SHORT).show();
                 break;
         }
         transaction.replace(R.id.main_container,fragment);
         transaction.addToBackStack(fragment.getClass().getSimpleName());
         transaction.commit();
+
     }
 
     /**
