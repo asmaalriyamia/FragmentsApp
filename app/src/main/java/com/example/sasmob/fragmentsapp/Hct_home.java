@@ -13,7 +13,7 @@ import com.example.sasmob.fragmentsapp.home.HCTHomeFragment;
 public class Hct_home extends AppCompatActivity implements
         HCTHomeFragment.OnFragmentInteractionListener,
         HctStudents.OnFragmentInteractionListener{
-    FrameLayout frame;
+        FrameLayout frame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class Hct_home extends AppCompatActivity implements
     }
 
     @Override
+
     public void onFragmentInteraction(Uri uri) {
 
     }
