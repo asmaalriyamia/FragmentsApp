@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sasmob.fragmentsapp.Hct_home;
 import com.example.sasmob.fragmentsapp.R;
+import com.example.sasmob.fragmentsapp.home.HCTHomeFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,6 +67,8 @@ public class HctStudents extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((Hct_home)getActivity()).getSupportActionBar().hide();
+
         return inflater.inflate(R.layout.fragment_hct_students, container, false);
     }
 
